@@ -1,81 +1,54 @@
+// Cotação das moedas.
+
 let dollarValue = 0.20;
 let euroValue = 0.18;
 let bitcoinValue = 0.0000008;
 
-let dollar = document.getElementById('#dollar');
-let euro = document.getElementById('#euro');
-let bitCoin = document.getElementById('#bitCoin');
-let calculo = 0;
+var coin = coinType
 
-let valueInput = document.getElementById('#valueNumber');
-let converter = document.getElementsByClassName('.button');
-let result = document.getElementById('#result');
+console.log(coin);
 
-function convertCoin() {
-    if (valueInput.value >= 1){
-        dollar.addEventListener('click', ()=> {
-            calculo = valueInput.value * dollar;
-            result.innerHTML = 'R$ ' + calculo.toFixed(2);
-            console.log('dollar');
-            
-        })
-        euro.addEventListener('click', ()=> {
-            calculo = valueInput.value * euro;
-            result.innerHTML = 'R$ ' + calculo.toFixed(2);
-            console.log('euro');
-        })
-        bitCoin.addEventListener('click', ()=> {
-            calculo = valueInput.value * bitCoin;
-            result.innerHTML = 'R$ ' + calculo.toFixed(2);
-            console.log('bitCoin');
-        });
-        
-    } else{
-        result.innerHTML = 'É necessário adicionar um valor!'
-    }
+function coinType(options) {
+    coin = options;
+    
+console.log(coin);
 
+   return coin; 
 }
 
+function convertCoin() {
 
+    console.log(coin);
 
+    let valueInput = document.getElementById("valueNumber").value;
 
+    valueInput = parseFloat(valueInput);
 
+    let calculo = null;
 
+    console.log(valueInput); 
 
-// // var real = prompt('\n Digite o valor em Real a converter: ');
+    if (valueInput > 0 && coin == "dollarValue"){
+           
+        calculo = valueInput * dollarValue;
 
-// var dollar = 0.20;
-// var euro = 0.18;
-// var bitCoin = 0.00000008;
+            result.innerHTML = 'R$ ' + calculo.toFixed(2);
+                }        
+    else if (valueInput > 0 && coin == "euroValue"){
+       
+        calculo = valueInput * euroValue;
 
-// var convert = 0;
+        result.innerHTML = 'R$ ' + calculo.toFixed(2);
+            }    
+    else if (valueInput > 0 && coin == "bitcoinValue"){
+        
+        calculo = valueInput * bitcoinValue;
 
-// function convertCoin() { 
-//     var radio = document.getElementById('#typeCoin');
+        result.innerHTML = 'R$ ' + calculo.toFixed(2);
+            }            
 
-//     for ( i = 0; i < radio.length; i++){ 
-//         if (radio[i].checked){
-//             switch (radio[1].value){
-//                 case "dollar":
-//                     convert = real * dollar;
-//                     convert = convert.toFixed(2);
-//                     document.getElementById('#result').innerHTML = "$" + convert;
-//                     break;
+    else {
 
-//                 case "euro":
-//                     convert = real * euro;
-//                     convert = convert.toFixed(2);
-//                     document.getElementById('#result').innerHTML = "$" + convert;
-//                     break;
-
-//                 case "bitCoin":
-//                     convert = real * bitCoin;
-//                     convert = convert.toFixed(2);
-//                     document.getElementById('#result').innerHTML = "$" + convert;
-//                     break;
-//                 default:
-//                     break;
-//             }
-//         }
-//     }
-// }
+        result.innerHTML = 'É necessário adicionar um valor!'
+    }
+}
